@@ -1,2 +1,2 @@
-# CZ4034_UI
-CZ4034 UI
+# CZ4034 Information Retrieval
+UI for our Information Retrieval project
