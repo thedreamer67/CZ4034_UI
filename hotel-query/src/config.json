@@ -1,0 +1,5 @@
+{
+  "PUBLIC_API_KEY": "search-r2n3yvttaxi1yt9x767azmvj",
+  "ENGINE_NAME": "hotels",
+  "END_POINT_BASE": "http://127.0.0.1:3002"
+}

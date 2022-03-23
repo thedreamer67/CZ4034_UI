@@ -1,10 +1,5 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
-import configData from "./config.json";
-import Search from "./components/search";
-import Home from "./components/home";
+import configData from "../config.json";
 
 // import elasticsearch app search
 import AppSearchAPIConnector from "@elastic/search-ui-app-search-connector";
@@ -74,18 +69,18 @@ const configurationOptions = {
   },
 };
 
-function App() {
+function Search() {
   return (
-    <>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Home />}></Route>
-          <Route path='/query' element={<Search />}></Route>
-        </Routes>
-      </Router>
-    </>
+    <SearchProvider config={configurationOptions}>
+      <div className='App'>
+        <Layout
+          header={<SearchBox />}
+          // titleField is the most prominent field within a result: the result header.
+          bodyContent={<Results titleField='hotels' urlField='image_url' />}
+        />
+      </div>
+    </SearchProvider>
   );
 }
 
-export default App;
+export default Search;
