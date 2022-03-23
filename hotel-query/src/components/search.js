@@ -19,10 +19,10 @@ const configurationOptions = {
   apiConnector: connector,
   searchQuery: {
     search_fields: {
-      // 1. Search by name of video game.
+      // 1. Search by name of hotel.
       hotels: {},
     },
-    // 2. Results: name, genre, publisher, scores, and platform.
+    // 2. Results: name, location, avrreviewscore.
     result_fields: {
       hotels: {
         // A snippet means that matching search terms will be wrapped in <em> tags.
@@ -76,7 +76,8 @@ function Search() {
         <Layout
           header={<SearchBox />}
           // titleField is the most prominent field within a result: the result header.
-          bodyContent={<Results titleField='hotels' urlField='image_url' />}
+          bodyContent={<Results titleField='hotels' />}
+          // bodyContent={<Results titleField='hotels' urlField='image_url' />}
         />
       </div>
     </SearchProvider>
