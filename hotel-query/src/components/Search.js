@@ -63,6 +63,18 @@ const configurationOptions = {
         // Scores are numeric, so we won't snippet.
         raw: {},
       },
+      popularfacils:{
+        raw: {},
+      },
+      whatsnearby: {
+        raw:{},
+      },
+      couplerating:{
+        raw:{},
+      },
+      accessibility:{
+        raw:{}
+      }
     },
     // 3. Facet by scores, genre, publisher, and platform, which we'll use to build filters later.
     facets: {
