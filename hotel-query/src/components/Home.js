@@ -1,7 +1,12 @@
 import React from "react";
+import "./Home.css";
 
 function Home() {
-  return <h1>Welcome to our hotel search engine!</h1>;
+  return (
+    <div className='welcome-container'>
+      <h1>Welcome to our hotel search engine!</h1>
+    </div>
+  );
 }
 
 export default Home;
