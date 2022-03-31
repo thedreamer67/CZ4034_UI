@@ -2,10 +2,6 @@ import React from "react";
 import configData from "../config.json";
 import { withSearch } from "@elastic/react-search-ui";
 
-// function TimeTaken2({ searchTerm }) {
-//   return <div>Time taken: {searchTerm} ms</div>;
-// }
-
 var ElasticAppSearch = require("@elastic/app-search-javascript");
 const client = ElasticAppSearch.createClient({
   searchKey: configData.PUBLIC_API_KEY,
@@ -39,6 +35,7 @@ function GetTimeTaken({ query }) {
 function TimeTaken({ searchTerm }) {
   return (
     <div>Time taken: {Number(GetTimeTaken(searchTerm)).toFixed(3)} ms</div>
+    // <div>Time taken: {GetTimeTaken(searchTerm)} ms</div>
   );
 }
 
