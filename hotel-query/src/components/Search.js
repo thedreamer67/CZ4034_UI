@@ -1,5 +1,6 @@
 import React from "react";
 import configData from "../config.json";
+import TimeTaken from "./TimeTaken";
 
 // import elasticsearch app search
 import AppSearchAPIConnector from "@elastic/search-ui-app-search-connector";
@@ -93,6 +94,8 @@ const configurationOptions = {
 function Search() {
   return (
     <SearchProvider config={configurationOptions}>
+      {/* <WithSearch mapContextToProps={({ rawResponse }) => ({ rawResponse })}> */}
+      {/* {({ rawResponse, searchTerm }) => ( */}
       <div className='App'>
         <Layout
           header={<SearchBox autocompleteSuggestions={true} />}
@@ -126,12 +129,15 @@ function Search() {
           bodyHeader={
             <>
               <PagingInfo />
+              <TimeTaken />
               <ResultsPerPage />
             </>
           }
           bodyFooter={<Paging />}
         />
       </div>
+      {/* // )} */}
+      {/* // </WithSearch> */}
     </SearchProvider>
   );
 }
