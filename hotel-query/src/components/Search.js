@@ -31,7 +31,7 @@ const configurationOptions = {
       types: {
         documents: {
           // Which fields to search for suggestions
-          fields: ["hotels"],
+          fields: ["hotels", "location"],
         },
       },
       // How many suggestions appear
@@ -43,13 +43,16 @@ const configurationOptions = {
     search_fields: {
       // 1. Search by name of hotel.
       hotels: {},
+      location: {},
+      popularfacils: {},
+      whatsnearby: {},
     },
     // 2. Results: name, location, avrreviewscore.
     result_fields: {
       hotels: {
         // A snippet means that matching search terms will be wrapped in <em> tags.
         snippet: {
-          size: 300, // Limit the snippet to 75 characters.
+          size: 300, // Limit the snippet to 300 characters.
           fallback: true, // Fallback to a "raw" result.
         },
       },
@@ -63,18 +66,18 @@ const configurationOptions = {
         // Scores are numeric, so we won't snippet.
         raw: {},
       },
-      popularfacils:{
+      popularfacils: {
         raw: {},
       },
       whatsnearby: {
-        raw:{},
+        raw: {},
       },
-      couplerating:{
-        raw:{},
+      couplerating: {
+        raw: {},
       },
-      accessibility:{
-        raw:{}
-      }
+      accessibility: {
+        raw: {},
+      },
     },
     // 3. Facet by scores, genre, publisher, and platform, which we'll use to build filters later.
     facets: {
@@ -87,18 +90,15 @@ const configurationOptions = {
           { from: 9, to: 10, name: "Must stay!" },
         ],
       },
-      //   critic_score: {
-      //     type: "range",
-      //     ranges: [
-      //       { from: 0, to: 50, name: "Not good" },
-      //       { from: 50, to: 70, name: "Not bad" },
-      //       { from: 70, to: 90, name: "Pretty good" },
-      //       { from: 90, to: 100, name: "Must play!" },
-      //     ],
-      //   },
-      //   genre: { type: "value", size: 100 },
-      //   publisher: { type: "value", size: 100 },
-      //   platform: { type: "value", size: 100 },
+      couplerating: {
+        type: "range",
+        ranges: [
+          { from: 0, to: 5, name: "Not good" },
+          { from: 5, to: 7, name: "Not bad" },
+          { from: 7, to: 9, name: "Pretty good" },
+          { from: 9, to: 10, name: "Must stay!" },
+        ],
+      },
     },
   },
 };
@@ -129,11 +129,21 @@ function Search() {
                     value: "hotels",
                     direction: "asc",
                   },
+                  {
+                    name: "Average Review Score",
+                    value: "avrreviewscore",
+                    direction: "desc",
+                  },
+                  {
+                    name: "Couple Rating",
+                    value: "couplerating",
+                    direction: "desc",
+                  },
                 ]}
               />
               <Facet field='avrreviewscore' label='Average Review Score' />
-              {/* <Facet field='critic_score' label='Critic Score' />
-              <Facet field='genre' label='Genre' />
+              <Facet field='couplerating' label='Couple Rating' />
+              {/* <Facet field='genre' label='Genre' />
               <Facet field='publisher' label='Publisher' isFilterable={true} />
               <Facet field='platform' label='Platform' /> */}
             </div>
