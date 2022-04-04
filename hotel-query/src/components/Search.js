@@ -42,7 +42,7 @@ const configurationOptions = {
   apiConnector: connector,
   searchQuery: {
     search_fields: {
-      // 1. Search by name of hotel.
+      // 1. Search by name of hotel, location, popular facils and what's nearby
       hotels: {},
       location: {},
       popularfacils: {},
@@ -64,7 +64,6 @@ const configurationOptions = {
         },
       },
       avrreviewscore: {
-        // Scores are numeric, so we won't snippet.
         raw: {},
       },
       couplerating: {
@@ -80,7 +79,7 @@ const configurationOptions = {
         raw: {},
       },
     },
-    // 3. Facet by scores, genre, publisher, and platform, which we'll use to build filters later.
+    // 3. Facet by ave review score, couple rating and whether the hotel is in town
     facets: {
       avrreviewscore: {
         type: "range",
@@ -99,6 +98,10 @@ const configurationOptions = {
           { from: 7, to: 9, name: "Pretty good" },
           { from: 9, to: 10, name: "Must stay!" },
         ],
+      },
+      town: {
+        type: "value",
+        size: 2,
       },
     },
   },
@@ -144,9 +147,8 @@ function Search() {
               />
               <Facet field='avrreviewscore' label='Average Review Score' />
               <Facet field='couplerating' label='Couple Rating' />
-              {/* <Facet field='genre' label='Genre' />
-              <Facet field='publisher' label='Publisher' isFilterable={true} />
-              <Facet field='platform' label='Platform' /> */}
+              <Facet field='town' label='In town or not' />
+              {/*<Facet field='publisher' label='Publisher' isFilterable={true} />*/}
             </div>
           }
           bodyHeader={
