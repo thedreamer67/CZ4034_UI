@@ -34,7 +34,10 @@ function GetTimeTaken({ query }) {
 
 function TimeTaken({ searchTerm }) {
   return (
-    <div>Time taken: {Number(GetTimeTaken(searchTerm)).toFixed(3)} ms</div>
+    <div>
+      <span style={{ fontWeight: "normal" }}>Time taken: </span>
+      {Number(GetTimeTaken(searchTerm)).toFixed(3)} ms
+    </div>
     // <div>Time taken: {GetTimeTaken(searchTerm)} ms</div>
   );
 }

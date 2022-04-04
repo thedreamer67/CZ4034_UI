@@ -1,6 +1,7 @@
 import React from "react";
 import configData from "../config.json";
 import TimeTaken from "./TimeTaken";
+import ResultView from "./ResultView";
 
 // import elasticsearch app search
 import AppSearchAPIConnector from "@elastic/search-ui-app-search-connector";
@@ -112,7 +113,7 @@ function Search() {
         <Layout
           header={<SearchBox autocompleteSuggestions={true} />}
           // titleField is the most prominent field within a result: the result header.
-          bodyContent={<Results titleField='hotels' />}
+          bodyContent={<Results titleField='hotels' resultView={ResultView} />}
           // bodyContent={<Results titleField='hotels' urlField='image_url' />}
           sideContent={
             <div>
