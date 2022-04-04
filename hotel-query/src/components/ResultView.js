@@ -62,26 +62,32 @@ export default function ResultView({ result }) {
               }}
             />
           </li>
-          {/* <li>
-            <span className='sui-result__key'>Accessibility</span>{" "}
-            <span
-              className='sui-result__value'
-              dangerouslySetInnerHTML={{
-                __html: result.accessibility.raw,
-              }}
-            />
-          </li> */}
-          {/* <li>
-            <span className='sui-result__key'>Couple Rating</span>{" "}
-            <span className='sui-result__value'>{result.couplerating.raw}</span>
-          </li> */}
+          {result.accessibility.raw !== "" && (
+            <li>
+              <span className='sui-result__key' style={textStyle}>
+                Accessibility
+              </span>{" "}
+              <span
+                className='sui-result__value'
+                style={textStyle}
+                dangerouslySetInnerHTML={{
+                  __html: result.accessibility.raw,
+                }}
+              />
+            </li>
+          )}
+          {result.couplerating.raw !== -1 && (
+            <li>
+              <span className='sui-result__key' style={textStyle}>
+                Couple Rating
+              </span>{" "}
+              <span className='sui-result__value' style={textStyle}>
+                {result.couplerating.raw}
+              </span>
+            </li>
+          )}
         </ul>
       </div>
     </li>
   );
 }
-
-<script>
-  document.getElementByClassName('sui-result__value').style.font-weight =
-  'normal'
-</script>;

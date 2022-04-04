@@ -67,13 +67,13 @@ const configurationOptions = {
         // Scores are numeric, so we won't snippet.
         raw: {},
       },
+      couplerating: {
+        raw: {},
+      },
       popularfacils: {
         raw: {},
       },
       whatsnearby: {
-        raw: {},
-      },
-      couplerating: {
         raw: {},
       },
       accessibility: {
