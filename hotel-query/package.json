@@ -1,6 +1,6 @@
 {
   "name": "hotel-query",
-  "version": "0.1.0",
+  "version": "0.1.",
   "private": true,
   "dependencies": {
     "@elastic/react-search-ui": "^1.10.0",
