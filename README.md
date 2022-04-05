@@ -83,7 +83,7 @@ Go to the project (hotel-query) directory
 Change the "PUBLIC_API_KEY" field in the config.json file to your own public search API key noted down
 [earlier](#set-up-the-elastic-engine)
 
-```json
+```
 {
     "PUBLIC_API_KEY": your-api-key
     ...
