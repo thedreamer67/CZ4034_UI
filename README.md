@@ -16,7 +16,10 @@ UI for our Information Retrieval project
 
 # Set up react
 
+- cd hotel-query
 - npm install
+- npm install --save @elastic/react-search-ui @elastic/search-ui-app-search-connector
+- npm install react-router-dom
 
 # How to use the search engine:
 
