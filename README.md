@@ -96,8 +96,14 @@ Install dependencies
   npm install
 ```
 
-Start the server
+Start the server in dev mode or production mode
 
 ```bash
   npm start
+```
+
+```bash
+  npm run build
+  npm install -g serve
+  serve -s build
 ```
