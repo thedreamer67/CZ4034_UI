@@ -1,28 +1,103 @@
 # CZ4034 Information Retrieval
 
-UI for our Information Retrieval project
+This is our search engine for querying hotels in Singapore. We used React and Elasticsearch Search UI to
+build our Web application, and Elasticsearch App Search as our engine.
 
-# Set up elasticsearch, kibana and enterprise search to use App Search
+## Table of Contents
 
-# Set up elasticsearch engine
+1. [Installation of Elasticsearch](#installation-of-elasticsearch)
+2. [Set up Elasticsearch engine](#set-up-elasticsearch-engine)
+3. [Run locally](#run-locally)
 
-- create engine: engine name='hotels', engine language='english'
-- upload data
-- change config "PUBLIC_API_KEY"
-- changing the type in 'schema'
-- relevance tuning
-- precision tuning
-- synonyms
+## Installation of Elasticsearch
 
-# Set up react
+Install Elasticsearch, Kibana and Enterprise Search (referred to as the Elastic Stack (EKE) from now on)
+by following the instructions on [this page](https://www.elastic.co/downloads/enterprise-search)
 
-- cd hotel-query
-- npm install
-- npm install --save @elastic/react-search-ui @elastic/search-ui-app-search-connector
-- npm install react-router-dom
+## Set up Elasticsearch engine
 
-# How to use the search engine:
+The Elastic Stack (EKE) should now be running locally after the installation and configuration in the previous step.
 
-- start elasticsearch, kibana, enterpriseseach
-- start react app
-- explain how to query in the app
+1. Open Elasticsearch in your browser by going to the local address where it is running on (e.g. http://localhost:5601).
+
+2. Go to App Search
+
+3. Create an engine:
+
+   - Engine name: "hotels"
+   - Engine language: "English"
+
+4. Upload the data using the [json file](hotelinfo_final.json)
+
+5. Under Schema, change the types of 'avrreviewscore' and 'couplerating' to number
+
+6. Adjusting Relevance Tuning
+
+7. Adjusting Precision Tuning
+
+8. Creating Synonyms
+
+9. Under Credentials, note down your public search API key (for use later)
+
+## Run locally
+
+To use our React Web App locally, you must first run Elasticsearch, Kibana and Enterprise Search locally.
+Then run the React Web app locally.
+
+### Start the Elasticsearch stack
+
+Go to the Elasticsearch folder, then start Elasticsearch
+
+```bash
+bin/elasticsearch
+```
+
+Go to the Kibana folder, then start Kibana
+
+```bash
+bin/kibana
+```
+
+Go to the Enterprise Search folder, then start Enterprise Search
+
+```bash
+bin/enterprisesearch
+```
+
+Go to the local address where Elasticsearch is running (e.g. http://localhost:5601).
+
+### Set up the React web application
+
+Clone the project
+
+```bash
+  git clone https://github.com/thedreamer67/CZ4034_UI.git
+```
+
+Go to the project (hotel-query) directory
+
+```bash
+  cd CZ4034_UI/hotel-query
+```
+
+Change the "PUBLIC_API_KEY" field in the config.json file to your own public search API key noted down
+[earlier](#set-up-the-elastic-engine)
+
+```json
+{
+    "PUBLIC_API_KEY": your-api-key
+    ...
+}
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm start
+```
