@@ -11,6 +11,7 @@ UI for our Information Retrieval project
 - change config "PUBLIC_API_KEY"
 - changing the type in 'schema'
 - relevance tuning
+- precision tuning
 - synonyms
 
 # Set up react
