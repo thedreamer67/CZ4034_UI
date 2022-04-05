@@ -85,8 +85,8 @@ Change the "PUBLIC_API_KEY" field in the config.json file to your own public sea
 
 ```
 {
-    "PUBLIC_API_KEY": your-api-key
-    ...
+  "PUBLIC_API_KEY": your-api-key
+  ...
 }
 ```
 
