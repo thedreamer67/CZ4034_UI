@@ -33,35 +33,35 @@ The Elastic Stack (EKE) should now be running locally after the installation and
 
 6. Adjust Relevance Tuning (Manage fields):
 
-  - 'popularfacils': weight = 2.5
-  - 'whatsnearby': weight = 3
-  - 'hotels': weight = 5
-  - 'location': weight = 4
+    - 'popularfacils': weight = 2.5
+    - 'whatsnearby': weight = 3
+    - 'hotels': weight = 5
+    - 'location': weight = 4
 
   Remember to save your changes!
 
 7. Adjust Precision Tuning (under the same settings where you did relevance tuning):
 
-  - Set the slider to stop at 3
+    - Set the slider to stop at 3
 
   Remember to save your changes!
 
 8. Create Synonym Sets
 
-  - Set 1:
+    - Set 1:
     - accessibility
     - ramp
     - elderly
     - disabled
     - lift
     - elevator
-  - Set 2:
+    - Set 2:
     - swimming pool
     - badminton
     - gym
     - fitness
     - tennis
-  - Set 3:
+    - Set 3:
     - beach
     - seaside
     - sea
@@ -136,7 +136,7 @@ Start the server in dev mode or production mode
 
 - Production mode:
 
-  - First run
+    - First run
 
     ```bash
       npm run build
