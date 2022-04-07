@@ -130,9 +130,9 @@ Start the server in dev mode or production mode
 
 - Dev mode:
 
-  ```bash
-    npm start
-  ```
+    ```bash
+      npm start
+    ```
 
 - Production mode:
 
