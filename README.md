@@ -151,3 +151,5 @@ Start the server in dev mode or production mode
         ```
 
 Open the React Web app on your browser by going to the local address it is running on (e.g. http://localhost:3000/)
+
+Have fun querying!
