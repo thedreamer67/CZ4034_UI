@@ -27,7 +27,7 @@ The Elastic Stack (EKE) should now be running locally after the installation and
    - Engine name: "hotels"
    - Engine language: "English"
 
-4. Upload the data using the [json file](data/hotelinfo_final.json)
+4. Upload the data using the [hotelinfo_final.json file](data/hotelinfo_final.json)
 
 5. Under Schema, change the types of 'avrreviewscore' and 'couplerating' to number
 
@@ -105,8 +105,17 @@ Start the server in dev mode or production mode
   ```
 
 - Production mode:
-  ```bash
-    npm run build
-    npm install -g serve
-    serve -s build
-  ```
+
+  - First run
+
+    ```bash
+      npm run build
+      npm install -g serve
+      serve -s build
+    ```
+
+  - Subsequent runs
+
+    ```bash
+      serve -s build
+    ```
