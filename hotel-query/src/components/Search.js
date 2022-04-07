@@ -5,7 +5,7 @@ import ResultView from "./ResultView";
 
 // import elasticsearch app search
 import AppSearchAPIConnector from "@elastic/search-ui-app-search-connector";
-import { Layout } from "@elastic/react-search-ui-views";
+import { Layout, SingleLinksFacet } from "@elastic/react-search-ui-views";
 import {
   PagingInfo,
   ResultsPerPage,
@@ -15,6 +15,8 @@ import {
   Results,
   SearchBox,
   Sorting,
+  WithSearch,
+  ErrorBoundary,
 } from "@elastic/react-search-ui";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
 
@@ -31,11 +33,9 @@ const configurationOptions = {
     suggestions: {
       types: {
         documents: {
-          // Which fields to search for suggestions
           fields: ["hotels", "location"],
         },
       },
-      // How many suggestions appear
       size: 5,
     },
   },
@@ -48,13 +48,11 @@ const configurationOptions = {
       popularfacils: {},
       whatsnearby: {},
     },
-    // 2. Results: name, location, avrreviewscore.
     result_fields: {
       hotels: {
-        // A snippet means that matching search terms will be wrapped in <em> tags.
         snippet: {
-          size: 300, // Limit the snippet to 300 characters.
-          fallback: true, // Fallback to a "raw" result.
+          size: 300,
+          fallback: true,
         },
       },
       location: {
@@ -78,8 +76,19 @@ const configurationOptions = {
       accessibility: {
         raw: {},
       },
+      distorchardmrt: {
+        raw: {},
+      },
+      distcityhallmrt: {
+        raw: {},
+      },
+      distrafflesmrt: {
+        raw: {},
+      },
+      distesplanademrt: {
+        raw: {},
+      },
     },
-    // 3. Facet by ave review score, couple rating and whether the hotel is in town
     facets: {
       avrreviewscore: {
         type: "range",
@@ -103,6 +112,42 @@ const configurationOptions = {
         type: "value",
         size: 2,
       },
+      distorchardmrt: {
+        type: "range",
+        ranges: [
+          { from: 0, to: 1, name: "Walkable distance (<1km)" },
+          { from: 1, to: 2, name: "1-2km" },
+          { from: 2, to: 3, name: "2-3km" },
+          { from: 3, name: "More than 3km" },
+        ],
+      },
+      distesplanademrt: {
+        type: "range",
+        ranges: [
+          { from: 0, to: 1, name: "Walkable distance (<1km)" },
+          { from: 1, to: 2, name: "1-2km" },
+          { from: 2, to: 3, name: "2-3km" },
+          { from: 3, name: "More than 3km" },
+        ],
+      },
+      distcityhallmrt: {
+        type: "range",
+        ranges: [
+          { from: 0, to: 1, name: "Walkable distance (<1km)" },
+          { from: 1, to: 2, name: "1-2km" },
+          { from: 2, to: 3, name: "2-3km" },
+          { from: 3, name: "More than 3km" },
+        ],
+      },
+      distrafflesmrt: {
+        type: "range",
+        ranges: [
+          { from: 0, to: 1, name: "Walkable distance (<1km)" },
+          { from: 1, to: 2, name: "1-2km" },
+          { from: 2, to: 3, name: "2-3km" },
+          { from: 3, name: "More than 3km" },
+        ],
+      },
     },
   },
 };
@@ -110,59 +155,113 @@ const configurationOptions = {
 function Search() {
   return (
     <SearchProvider config={configurationOptions}>
-      {/* <WithSearch mapContextToProps={({ rawResponse }) => ({ rawResponse })}> */}
-      {/* {({ rawResponse, searchTerm }) => ( */}
-      <div className='App'>
-        <Layout
-          header={<SearchBox autocompleteSuggestions={true} />}
-          // titleField is the most prominent field within a result: the result header.
-          bodyContent={<Results titleField='hotels' resultView={ResultView} />}
-          // bodyContent={<Results titleField='hotels' urlField='image_url' />}
-          sideContent={
-            <div>
-              <Sorting
-                label={"Sort by"}
-                sortOptions={[
-                  {
-                    name: "Relevance",
-                    value: "",
-                    direction: "",
-                  },
-                  {
-                    name: "Name",
-                    value: "hotels",
-                    direction: "asc",
-                  },
-                  {
-                    name: "Average Review Score",
-                    value: "avrreviewscore",
-                    direction: "desc",
-                  },
-                  {
-                    name: "Couple Rating",
-                    value: "couplerating",
-                    direction: "desc",
-                  },
-                ]}
-              />
-              <Facet field='avrreviewscore' label='Average Review Score' />
-              <Facet field='couplerating' label='Couple Rating' />
-              <Facet field='town' label='In town or not' />
-              {/*<Facet field='publisher' label='Publisher' isFilterable={true} />*/}
+      <WithSearch mapContextToProps={({ wasSearched }) => ({ wasSearched })}>
+        {({ wasSearched }) => {
+          return (
+            <div className='App'>
+              <ErrorBoundary>
+                <Layout
+                  header={
+                    <SearchBox
+                      inputProps={{ placeholder: "Enter your query here!" }}
+                      autocompleteSuggestions={true}
+                    />
+                  }
+                  bodyContent={
+                    <Results titleField='hotels' resultView={ResultView} />
+                  }
+                  sideContent={
+                    <div>
+                      {wasSearched && (
+                        <Sorting
+                          label={"Sort by"}
+                          sortOptions={[
+                            {
+                              name: "Relevance",
+                              value: "",
+                              direction: "",
+                            },
+                            {
+                              name: "Name",
+                              value: "hotels",
+                              direction: "asc",
+                            },
+                            {
+                              name: "Average Review Score",
+                              value: "avrreviewscore",
+                              direction: "desc",
+                            },
+                            {
+                              name: "Couple Rating",
+                              value: "couplerating",
+                              direction: "desc",
+                            },
+                            {
+                              name: "Distance to Orchard MRT Station",
+                              value: "distorchardmrt",
+                              direction: "asc",
+                            },
+                            {
+                              name: "Distance to City Hall MRT Station",
+                              value: "distcityhallmrt",
+                              direction: "asc",
+                            },
+                            {
+                              name: "Distance to Raffles Place MRT Station",
+                              value: "distrafflesmrt",
+                              direction: "asc",
+                            },
+                            {
+                              name: "Distance to Esplanade MRT Station",
+                              value: "distesplanademrt",
+                              direction: "asc",
+                            },
+                          ]}
+                        />
+                      )}
+                      <Facet
+                        field='avrreviewscore'
+                        label='Average Review Score'
+                        filterType='any'
+                      />
+                      <Facet field='couplerating' label='Couple Rating' />
+                      <Facet field='town' label='In town or not?' />
+                      <Facet
+                        field='distorchardmrt'
+                        label='Distance to Orchard MRT Station'
+                        view={SingleLinksFacet}
+                      />
+                      <Facet
+                        field='distcityhallmrt'
+                        label='Distance to City Hall MRT Station'
+                        view={SingleLinksFacet}
+                      />
+                      <Facet
+                        field='distrafflesmrt'
+                        label='Distance to Raffles Place MRT Station'
+                        view={SingleLinksFacet}
+                      />
+                      <Facet
+                        field='distesplanademrt'
+                        label='Distance to Esplanade MRT Station'
+                        view={SingleLinksFacet}
+                      />
+                    </div>
+                  }
+                  bodyHeader={
+                    <>
+                      {wasSearched && <PagingInfo />}
+                      {wasSearched && <TimeTaken />}
+                      {wasSearched && <ResultsPerPage />}
+                    </>
+                  }
+                  bodyFooter={<Paging />}
+                />
+              </ErrorBoundary>
             </div>
-          }
-          bodyHeader={
-            <>
-              <PagingInfo />
-              <TimeTaken />
-              <ResultsPerPage />
-            </>
-          }
-          bodyFooter={<Paging />}
-        />
-      </div>
-      {/* // )} */}
-      {/* // </WithSearch> */}
+          );
+        }}
+      </WithSearch>
     </SearchProvider>
   );
 }
