@@ -24,8 +24,8 @@ The Elastic Stack (EKE) should now be running locally after the installation and
 
 3. Create a new engine:
 
-  - Engine name: hotels
-  - Engine language: English
+    - Engine name: hotels
+    - Engine language: English
 
 4. Upload the data, which is the [hotelinfo_final.json file](data/hotelinfo_final.json). You should have 417 documents.
 
