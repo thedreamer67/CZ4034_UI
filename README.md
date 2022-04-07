@@ -38,13 +38,13 @@ The Elastic Stack (EKE) should now be running locally after the installation and
     - 'hotels': weight = 5
     - 'location': weight = 4
 
-  Remember to save your changes!
+    Remember to save your changes!
 
 7. Adjust Precision Tuning (under the same settings where you did relevance tuning):
 
     - Set the slider to stop at 3
 
-  Remember to save your changes!
+    Remember to save your changes!
 
 8. Create Synonym Sets
 
