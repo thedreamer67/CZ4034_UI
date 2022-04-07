@@ -24,8 +24,8 @@ The Elastic Stack (EKE) should now be running locally after the installation and
 
 3. Create a new engine:
 
-- Engine name: hotels
-- Engine language: English
+  - Engine name: hotels
+  - Engine language: English
 
 4. Upload the data, which is the [hotelinfo_final.json file](data/hotelinfo_final.json). You should have 417 documents.
 
@@ -33,39 +33,39 @@ The Elastic Stack (EKE) should now be running locally after the installation and
 
 6. Adjust Relevance Tuning (Manage fields):
 
-- 'popularfacils': weight = 2.5
-- 'whatsnearby': weight = 3
-- 'hotels': weight = 5
-- 'location': weight = 4
+  - 'popularfacils': weight = 2.5
+  - 'whatsnearby': weight = 3
+  - 'hotels': weight = 5
+  - 'location': weight = 4
 
   Remember to save your changes!
 
 7. Adjust Precision Tuning (under the same settings where you did relevance tuning):
 
-- Set the slider to stop at 3
+  - Set the slider to stop at 3
 
   Remember to save your changes!
 
 8. Create Synonym Sets
 
-- Set 1:
-  - accessibility
-  - ramp
-  - elderly
-  - disabled
-  - lift
-  - elevator
-- Set 2:
-  - swimming pool
-  - badminton
-  - gym
-  - fitness
-  - tennis
-- Set 3:
-  - beach
-  - seaside
-  - sea
-  - resort
+  - Set 1:
+    - accessibility
+    - ramp
+    - elderly
+    - disabled
+    - lift
+    - elevator
+  - Set 2:
+    - swimming pool
+    - badminton
+    - gym
+    - fitness
+    - tennis
+  - Set 3:
+    - beach
+    - seaside
+    - sea
+    - resort
 
 9. Under Credentials, note down your Public Search Key (for use later).
 
