@@ -49,23 +49,23 @@ The Elastic Stack (EKE) should now be running locally after the installation and
 8. Create Synonym Sets
 
     - Set 1:
-    - accessibility
-    - ramp
-    - elderly
-    - disabled
-    - lift
-    - elevator
+        - accessibility
+        - ramp
+        - elderly
+        - disabled
+        - lift
+        - elevator
     - Set 2:
-    - swimming pool
-    - badminton
-    - gym
-    - fitness
-    - tennis
+        - swimming pool
+        - badminton
+        - gym
+        - fitness
+        - tennis
     - Set 3:
-    - beach
-    - seaside
-    - sea
-    - resort
+        - beach
+        - seaside
+        - sea
+        - resort
 
 9. Under Credentials, note down your Public Search Key (for use later).
 
@@ -79,19 +79,19 @@ Then run the React Web app locally.
 Go to your Elasticsearch folder, then start Elasticsearch:
 
 ```bash
-bin/elasticsearch
+  bin/elasticsearch
 ```
 
 Go to your Kibana folder, then start Kibana:
 
 ```bash
-bin/kibana
+  bin/kibana
 ```
 
 Go to your Enterprise Search folder, then start Enterprise Search:
 
 ```bash
-bin/enterprisesearch
+  bin/enterprisesearch
 ```
 
 Go to the local address where Elasticsearch is running (e.g. http://localhost:5601) if you would like to monitor the backend of the search engine.
@@ -138,16 +138,16 @@ Start the server in dev mode or production mode
 
     - First run
 
-    ```bash
-      npm run build
-      npm install -g serve
-      serve -s build
-    ```
+        ```bash
+          npm run build
+          npm install -g serve
+          serve -s build
+        ```
 
-  - Subsequent runs
+    - Subsequent runs
 
-    ```bash
-      serve -s build
-    ```
+        ```bash
+          serve -s build
+        ```
 
 Open the React Web app on your browser by going to the local address it is running on (e.g. http://localhost:3000/)
