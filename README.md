@@ -38,15 +38,15 @@ The Elastic Stack (EKE) should now be running locally after the installation and
 - 'hotels': weight = 5
 - 'location': weight = 4
 
-Remember to save your changes!
+  Remember to save your changes!
 
 7. Adjust Precision Tuning (under the same settings where you did relevance tuning):
 
 - Set the slider to stop at 3
 
-Remember to save your changes!
+  Remember to save your changes!
 
-8. Creating Synonyms
+8. Create Synonym Sets
 
 - Set 1:
   - accessibility
@@ -149,3 +149,5 @@ Start the server in dev mode or production mode
     ```bash
       serve -s build
     ```
+
+Open the React Web app on your browser by going to the local address it is running on (e.g. http://localhost:3000/)
