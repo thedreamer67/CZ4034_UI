@@ -222,7 +222,6 @@ function Search() {
                       <Facet
                         field='avrreviewscore'
                         label='Average Review Score'
-                        filterType='any'
                       />
                       <Facet field='couplerating' label='Couple Rating' />
                       <Facet field='town' label='In town or not?' />
