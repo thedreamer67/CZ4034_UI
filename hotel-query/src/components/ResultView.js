@@ -86,6 +86,38 @@ export default function ResultView({ result }) {
               </span>
             </li>
           )}
+          <li>
+            <span className='sui-result__key' style={textStyle}>
+              Distance to Orchard MRT Station
+            </span>{" "}
+            <span className='sui-result__value' style={textStyle}>
+              {result.distorchardmrt.raw}
+            </span>
+          </li>
+          <li>
+            <span className='sui-result__key' style={textStyle}>
+              Distance to City Hall MRT Station
+            </span>{" "}
+            <span className='sui-result__value' style={textStyle}>
+              {result.distcityhallmrt.raw}
+            </span>
+          </li>
+          <li>
+            <span className='sui-result__key' style={textStyle}>
+              Distance to Raffles Place MRT Station
+            </span>{" "}
+            <span className='sui-result__value' style={textStyle}>
+              {result.distrafflesmrt.raw}
+            </span>
+          </li>
+          <li>
+            <span className='sui-result__key' style={textStyle}>
+              Distance to Esplanade MRT Station
+            </span>{" "}
+            <span className='sui-result__value' style={textStyle}>
+              {result.distesplanademrt.raw}
+            </span>
+          </li>
         </ul>
       </div>
     </li>
