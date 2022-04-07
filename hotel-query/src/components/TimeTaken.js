@@ -24,24 +24,25 @@ function GetTimeTaken({ query }) {
     },
   };
   const startTime = performance.now();
+  console.log(startTime);
   client
     .search(query, options)
     .then((response) => console.log(response))
     .catch((error) => console.log(error.errorMessages));
   const endTime = performance.now();
+  console.log(endTime);
   return endTime - startTime;
 }
 
-function TimeTaken({ searchTerm }) {
+function TimeTaken({ resultSearchTerm }) {
   return (
     <div>
       <span style={{ fontWeight: "normal" }}>Time taken: </span>
-      {Number(GetTimeTaken(searchTerm)).toFixed(3)} ms
+      {Number(GetTimeTaken(resultSearchTerm)).toFixed(3)} ms
     </div>
-    // <div>Time taken: {GetTimeTaken(searchTerm)} ms</div>
   );
 }
 
-export default withSearch(({ searchTerm }) => ({
-  searchTerm,
+export default withSearch(({ resultSearchTerm }) => ({
+  resultSearchTerm,
 }))(TimeTaken);
