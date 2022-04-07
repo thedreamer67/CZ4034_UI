@@ -14,34 +14,62 @@ build our Web application, and Elasticsearch App Search as our engine.
 Install Elasticsearch, Kibana and Enterprise Search (referred to as the Elastic Stack (EKE) from now on)
 by following the instructions on [this page](https://www.elastic.co/downloads/enterprise-search)
 
-## Set up Elasticsearch engine
+## Set up the Elasticsearch engine
 
 The Elastic Stack (EKE) should now be running locally after the installation and configuration in the previous step.
 
 1. Open Elasticsearch in your browser by going to the local address where it is running on (e.g. http://localhost:5601).
 
-2. Go to App Search
+2. Go to App Search under Enterprise Search.
 
-3. Create an engine:
+3. Create a new engine:
 
    - Engine name: "hotels"
    - Engine language: "English"
 
-4. Upload the data using the [hotelinfo_final.json file](data/hotelinfo_final.json)
+4. Upload the data, which is the [hotelinfo_final.json file](data/hotelinfo_final.json). You should have 417 documents.
 
-5. Under Schema, change the types of 'avrreviewscore' and 'couplerating' to number
+5. Under Schema, change the types of 'avrreviewscore', 'couplerating', 'distesplanademrt', 'distorchardmrt', 'distcityhallmrt', 'distrafflesmrt' to number. Remember to save your changes!
 
-6. Adjusting Relevance Tuning
+6. Adjust Relevance Tuning (Manage fields):
 
-7. Adjusting Precision Tuning
+   - popularfacils: weight = 2.5
+   - whatsnearby: weight = 3
+   - hotels: weight = 5
+   - location: weight = 4
+
+   Remember to save your changes!
+
+7. Adjust Precision Tuning (under the same settings where you did relevance tuning):
+
+   - Set the slider to stop at 3
 
 8. Creating Synonyms
 
-9. Under Credentials, note down your public search API key (for use later)
+   - Set 1:
+     - accessibility
+     - ramp
+     - elderly
+     - disabled
+     - lift
+     - elevator
+   - Set 2:
+     - swimming pool
+     - badminton
+     - gym
+     - fitness
+     - tennis
+   - Set 3:
+     - beach
+     - seaside
+     - sea
+     - resort
+
+9. Under Credentials, note down your Public Search Key (for use later).
 
 ## Run locally
 
-To use our React Web App locally, you must first run Elasticsearch, Kibana and Enterprise Search locally.
+To use our React Web App Search Engine locally, you must first run Elasticsearch, Kibana and Enterprise Search locally.
 Then run the React Web app locally.
 
 ### Start the Elasticsearch stack
