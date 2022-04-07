@@ -163,7 +163,10 @@ function Search() {
                 <Layout
                   header={
                     <SearchBox
-                      inputProps={{ placeholder: "Enter your query here!" }}
+                      inputProps={{
+                        placeholder:
+                          "Enter your query here to search for a hotel using its name, location, facilities or nearby landmarks!",
+                      }}
                       autocompleteSuggestions={true}
                     />
                   }
