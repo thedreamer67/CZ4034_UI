@@ -6,26 +6,26 @@ build our Web application, and Elasticsearch App Search as our engine.
 ## Table of Contents
 
 1. [Installation of Elasticsearch](#installation-of-elasticsearch)
-2. [Set up Elasticsearch engine](#set-up-elasticsearch-engine)
+2. [Set up the Elasticsearch engine](#set-up-the-elasticsearch-engine)
 3. [Run locally](#run-locally)
 
 ## Installation of Elasticsearch
 
-Install Elasticsearch, Kibana and Enterprise Search (referred to as the Elastic Stack (EKE) from now on)
-by following the instructions on [this page](https://www.elastic.co/downloads/enterprise-search)
+Install and configure Elasticsearch, Kibana and Enterprise Search (referred to as the Elastic Stack (EKE) from now on)
+by following the instructions on [this page](https://www.elastic.co/downloads/enterprise-search).
 
 ## Set up the Elasticsearch engine
 
 The Elastic Stack (EKE) should now be running locally after the installation and configuration in the previous step.
 
-1. Open Elasticsearch in your browser by going to the local address where it is running on (e.g. http://localhost:5601).
+1. Open Elasticsearch in your browser by going to the local address it is running on (e.g. http://localhost:5601).
 
 2. Go to App Search under Enterprise Search.
 
 3. Create a new engine:
 
-   - Engine name: "hotels"
-   - Engine language: "English"
+- Engine name: hotels
+- Engine language: English
 
 4. Upload the data, which is the [hotelinfo_final.json file](data/hotelinfo_final.json). You should have 417 documents.
 
@@ -33,66 +33,68 @@ The Elastic Stack (EKE) should now be running locally after the installation and
 
 6. Adjust Relevance Tuning (Manage fields):
 
-   - popularfacils: weight = 2.5
-   - whatsnearby: weight = 3
-   - hotels: weight = 5
-   - location: weight = 4
+- 'popularfacils': weight = 2.5
+- 'whatsnearby': weight = 3
+- 'hotels': weight = 5
+- 'location': weight = 4
 
-   Remember to save your changes!
+Remember to save your changes!
 
 7. Adjust Precision Tuning (under the same settings where you did relevance tuning):
 
-   - Set the slider to stop at 3
+- Set the slider to stop at 3
+
+Remember to save your changes!
 
 8. Creating Synonyms
 
-   - Set 1:
-     - accessibility
-     - ramp
-     - elderly
-     - disabled
-     - lift
-     - elevator
-   - Set 2:
-     - swimming pool
-     - badminton
-     - gym
-     - fitness
-     - tennis
-   - Set 3:
-     - beach
-     - seaside
-     - sea
-     - resort
+- Set 1:
+  - accessibility
+  - ramp
+  - elderly
+  - disabled
+  - lift
+  - elevator
+- Set 2:
+  - swimming pool
+  - badminton
+  - gym
+  - fitness
+  - tennis
+- Set 3:
+  - beach
+  - seaside
+  - sea
+  - resort
 
 9. Under Credentials, note down your Public Search Key (for use later).
 
 ## Run locally
 
-To use our React Web App Search Engine locally, you must first run Elasticsearch, Kibana and Enterprise Search locally.
+To use our React Web App Search Engine locally, you must first run Elasticsearch, Kibana and Enterprise Search (in this order) locally.
 Then run the React Web app locally.
 
 ### Start the Elasticsearch stack
 
-Go to the Elasticsearch folder, then start Elasticsearch
+Go to your Elasticsearch folder, then start Elasticsearch:
 
 ```bash
 bin/elasticsearch
 ```
 
-Go to the Kibana folder, then start Kibana
+Go to your Kibana folder, then start Kibana:
 
 ```bash
 bin/kibana
 ```
 
-Go to the Enterprise Search folder, then start Enterprise Search
+Go to your Enterprise Search folder, then start Enterprise Search:
 
 ```bash
 bin/enterprisesearch
 ```
 
-Go to the local address where Elasticsearch is running (e.g. http://localhost:5601).
+Go to the local address where Elasticsearch is running (e.g. http://localhost:5601) if you would like to monitor the backend of the search engine.
 
 ### Set up the React web application
 
@@ -108,12 +110,12 @@ Go to the project (hotel-query) directory
   cd CZ4034_UI/hotel-query
 ```
 
-Change the "PUBLIC_API_KEY" field in the config.json file to your own public search API key noted down
+Change the "PUBLIC_API_KEY" field in the [config.json](hotel-query/src/config.json) file to your own Public Search Key noted down
 [earlier (step 9)](#set-up-elasticsearch-engine)
 
 ```
 {
-  "PUBLIC_API_KEY": your-api-key
+  "PUBLIC_API_KEY": "your-api-key"
   ...
 }
 ```
