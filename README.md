@@ -57,6 +57,7 @@ The Elastic Stack (EKE) should now be running locally after the installation and
         - disabled
         - lift
         - elevator
+        - wheelchair
     - Set 2:
         - swimming pool
         - badminton
