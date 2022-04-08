@@ -23,7 +23,6 @@ town = [
     "city hall",
     "shenton way",
     "bukit merah",
-    "city hall",
     "downtown",
     "takashimaya",
     "ngee ann city",
