@@ -9,7 +9,7 @@
     
 4. hotelinfo_final.json
     - Built on from hotelinfo_wmrt_full.json.
-    - Processed the data to add information on whether or not each hotel is in town
+    - Processed the data to add information on whether or not each hotel is in town.
     - A hotel is considered to be in town if any of these words appear in the 'location' or 'whatsnearby' field:
         - raffles
         - tanjong pagar
