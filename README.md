@@ -8,6 +8,8 @@ build our Web application, and Elasticsearch App Search as our engine.
 1. [Installation of Elasticsearch](#installation-of-elasticsearch)
 2. [Set up the Elasticsearch engine](#set-up-the-elasticsearch-engine)
 3. [Run locally](#run-locally)
+    1. [Start the Elasticsearch stack](#start-the-elasticsearch-stack)
+    2. [Set up the React web application](#set-up-the-react-web-application)
 
 ## Installation of Elasticsearch
 
@@ -130,9 +132,9 @@ Start the server in dev mode or production mode
 
 - Dev mode:
 
-  ```bash
-    npm start
-  ```
+    ```bash
+      npm start
+    ```
 
 - Production mode:
 
@@ -151,3 +153,5 @@ Start the server in dev mode or production mode
         ```
 
 Open the React Web app on your browser by going to the local address it is running on (e.g. http://localhost:3000/)
+
+Have fun querying!
