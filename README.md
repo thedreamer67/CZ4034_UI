@@ -97,7 +97,7 @@ Go to your Enterprise Search folder, then start Enterprise Search:
   bin/enterprisesearch
 ```
 
-Go to the local address where Elasticsearch is running (e.g. http://localhost:5601) if you would like to monitor the backend of the search engine.
+Go to the local address where Elasticsearch is running (e.g. http://localhost:5601) if you would like to monitor the backend aspect of the search engine.
 
 ### Set up the React web application
 
